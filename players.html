@@ -266,7 +266,7 @@ footer{background:var(--gray);border-top:1px solid rgba(255,255,255,0.05);paddin
     <!-- チャンピオン -->
     <div class="pcard champion" data-status="champion" data-year="2025" data-region="九州" onclick="openPlayer(0)">
       <div class="pcard-photo">
-        <img loading="lazy" src="players/shuj1.jpg" alt="SHUJ1" style="width:100%;height:100%;object-fit:cover;">
+        <img src="players/shuj1.jpg" alt="SHUJ1" style="width:100%;height:100%;object-fit:cover;">
         <div class="pcard-photo-overlay"></div>
         <div class="pcard-photo-badges"><span class="pbadge pbadge-lime">🏆 Champion</span><span class="pbadge pbadge-gray">2025</span></div>
         <div class="pcard-photo-name"><div class="pcard-region">福岡代表</div><div class="pcard-name-jp">SHUJ1</div><div class="pcard-name-en">SHUJ1</div></div>
@@ -281,7 +281,7 @@ footer{background:var(--gray);border-top:1px solid rgba(255,255,255,0.05);paddin
     <!-- 準優勝 -->
     <div class="pcard finalist" data-status="finalist" data-year="2025" data-region="関東" onclick="openPlayer(1)">
       <div class="pcard-photo">
-        <img loading="lazy" src="players/daisuke.jpg" alt="DAISUKE" style="width:100%;height:100%;object-fit:cover;">
+        <img src="players/daisuke.jpg" alt="DAISUKE" style="width:100%;height:100%;object-fit:cover;">
         <div class="pcard-photo-overlay"></div>
         <div class="pcard-photo-badges"><span class="pbadge pbadge-blue">準優勝</span><span class="pbadge pbadge-gray">2025</span></div>
         <div class="pcard-photo-name"><div class="pcard-region">東京代表</div><div class="pcard-name-jp">DAISUKE</div><div class="pcard-name-en">DAISUKE</div></div>
@@ -296,7 +296,7 @@ footer{background:var(--gray);border-top:1px solid rgba(255,255,255,0.05);paddin
     <!-- ベスト4 関東A -->
     <div class="pcard finalist" data-status="finalist" data-year="2025" data-region="関東" onclick="openPlayer(2)">
       <div class="pcard-photo">
-        <img loading="lazy" src="players/shuichi.jpg" alt="SHUICHI" style="width:100%;height:100%;object-fit:cover;">
+        <img src="players/shuichi.jpg" alt="SHUICHI" style="width:100%;height:100%;object-fit:cover;">
         <div class="pcard-photo-overlay"></div>
         <div class="pcard-photo-badges"><span class="pbadge pbadge-blue">ベスト4</span><span class="pbadge pbadge-gray">2025</span></div>
         <div class="pcard-photo-name"><div class="pcard-region">神奈川代表</div><div class="pcard-name-jp">SHUICHI</div><div class="pcard-name-en">SHUICHI</div></div>
@@ -328,13 +328,13 @@ footer{background:var(--gray);border-top:1px solid rgba(255,255,255,0.05);paddin
       <div class="pcard-photo">
         <div style="width:100%;height:100%;background:linear-gradient(160deg,#1a0808,#080808);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.4rem;"><div style="font-size:3rem;opacity:0.12;">🇰🇷</div><span style="font-size:0.65rem;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.1em;color:var(--muted2);text-transform:uppercase;">선수 사진</span></div>
         <div class="pcard-photo-overlay"></div>
-        <div class="pcard-photo-badges"><span class="pbadge pbadge-red">🇰🇷 Korea</span><span class="pbadge pbadge-gray">2025</span></div>
-        <div class="pcard-photo-name"><div class="pcard-region" style="color:var(--red)">Korea 代表</div><div class="pcard-name-jp">선수명<br>（※要入力）</div><div class="pcard-name-en">PLAYER NAME</div></div>
+        <div class="pcard-photo-badges"><span class="pbadge pbadge-red">🇰🇷 Korea 優勝</span><span class="pbadge pbadge-gray">2026</span></div>
+        <div class="pcard-photo-name"><div class="pcard-region" style="color:var(--red)">Korea 代表</div><div class="pcard-name-jp">Bam</div><div class="pcard-name-en">BAM</div></div>
       </div>
       <div class="pcard-body">
-        <div class="pcard-stats"><div class="pcard-stat"><div class="pstat-num" style="color:var(--red)">KR</div><div class="pstat-label">出身</div></div><div class="pcard-stat"><div class="pstat-num">1st</div><div class="pstat-label">Korea</div></div><div class="pcard-stat"><div class="pstat-num">🔥</div><div class="pstat-label">熱量</div></div></div>
+        <div class="pcard-stats"><div class="pcard-stat"><div class="pstat-num" style="color:var(--red)">USA</div><div class="pstat-label">出身</div></div><div class="pcard-stat"><div class="pstat-num" style="color:var(--red)">7</div><div class="pstat-label">勝利</div></div><div class="pcard-stat"><div class="pstat-num">0</div><div class="pstat-label">敗北</div></div></div>
         <div class="pcard-style"><span class="style-tag">アグレッシブ</span><span class="style-tag">フィジカル</span></div>
-        <div class="pcard-quote">「일본에서 최강을 증명한다」</div>
+        <div class="pcard-quote">「To win」</div>
         <div class="pcard-footer"><button class="pcard-video-btn" style="border-color:rgba(255,36,36,0.3);color:var(--red);" onclick="event.stopPropagation();window.location.href='videos.html'">▶ 映像を見る</button><div class="pcard-sns"><a class="sns-icon" href="#">IG</a></div></div>
       </div>
     </div>
@@ -469,7 +469,7 @@ const players=[
   {name:'DAISUKE',en:'DAISUKE',region:'東京代表',badges:['準優勝','2025'],bio:'「アマチュア最強」を背負って2023年のCLASH BEAT1から参戦。2025大会では決勝で惜しくも敗れた。',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'準優勝',cl:'rb-blue'},{y:'2025',t:'東京予選',r:'優勝',cl:'rb-gold'}],style:['フィジカル','テクニック','インサイド'],quote:'（コメントを入力）',stats:[{n:'12',l:'勝利'},{n:'1',l:'敗北'},{n:'92%',l:'勝率'},{n:'2nd',l:'最終順位'}]},
   {name:'SHUICHI',en:'SHUICHI',region:'神奈川代表',badges:['ベスト4','2025'],bio:'2度の大怪我で一度は辞めたが、1on1特化で復活した44歳。神奈川2位となるも1位の欠場のチャンスを活かしベスト4入り。横浜武道館を最も沸かせた男。',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'ベスト4',cl:'rb-blue'},{y:'2025',t:'神奈川予選',r:'準優勝',cl:'rb-blue'}],style:['フィジカル','フッカー','ゴリゴリ'],quote:'おれが1on1最強のおやじだよ。',stats:[{n:'22',l:'勝利'},{n:'7',l:'敗北'},{n:'Top4',l:'最終順位'},{n:'44',l:'年齢'}]},
   {name:'選手名（※要入力）',en:'PLAYER NAME',region:'近畿代表',badges:['地域代表','2025'],bio:'近畿代表として全国大会ベスト8。インサイドの圧倒的なパワーでディフェンスを崩し続けた。（選手紹介文を入力）',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'ベスト8',cl:'rb-gray'},{y:'2025',t:'近畿予選',r:'優勝',cl:'rb-gold'}],style:['パワー','インサイド','リバウンド'],quote:'関西のバスケを見せた',stats:[{n:'2',l:'勝利'},{n:'1',l:'敗北'},{n:'67%',l:'勝率'},{n:'Top8',l:'最終順位'}]},
-  {name:'선수명（※要入力）',en:'PLAYER NAME',region:'🇰🇷 Korea 代表',badges:['🇰🇷 Korea','2025'],bio:'CLASH BEAT Korea 第一回予選を制した韓国代表。日本の舞台でアグレッシブなプレースタイルを披露。（選手紹介文を入力）',results:[{y:'2025',t:'CLASH BEAT Korea 予選',r:'優勝',cl:'rb-gold'},{y:'2025',t:'CLASH BEAT 全国大会',r:'参戦',cl:'rb-gray'}],style:['アグレッシブ','フィジカル','スピード'],quote:'일본에서 최강을 증명한다',stats:[{n:'KR',l:'出身'},{n:'1st',l:'Korea'},{n:'参戦',l:'全国大会'},{n:'🔥',l:'エネルギー'}]},
+  {name:'Bam',en:'BAM',region:'🇰🇷 Korea 代表',badges:['🇰🇷 Korea 優勝','2026'],bio:'CLASH BEAT Korea 第一回予選を制した韓国代表。日本の舞台でアグレッシブなプレースタイルを披露。（選手紹介文を入力）',results:[{y:'2026',t:'CLASH BEAT Korea 予選',r:'優勝',cl:'rb-gold'},{y:'2026',t:'CLASH BEAT 全国大会',r:'参戦',cl:'rb-gray'}],style:['アグレッシブ','フィジカル','スピード'],quote:'To win',stats:[{n:'USA',l:'出身'},{n:'7',l:'勝利'},{n:'0',l:'敗北'},{n:'🔥',l:'エネルギー'}]},
   {name:'選手名（※要入力）',en:'PLAYER NAME',region:'2023 オーディション選抜',badges:['オーディション','2023'],bio:'CLASH BEAT 初期オーディションで選ばれた一人。プロジェクトの原点とも言える選手。2025年も継続参戦し、その成長を見せている。（選手紹介文を入力）',results:[{y:'2023',t:'オーディション',r:'選抜',cl:'rb-gold'},{y:'2024',t:'予選参戦',r:'継続',cl:'rb-gray'},{y:'2025',t:'予選参戦',r:'継続',cl:'rb-gray'}],style:['テクニック','ハンドリング','IQ'],quote:'ここから始まった。まだ終わってない',stats:[{n:'2023',l:'始動'},{n:'3',l:'出場年数'},{n:'継続',l:'参戦'},{n:'↑',l:'成長中'}]},
   {name:'選手名（※要入力）',en:'PLAYER NAME',region:'沖縄代表',badges:['地域代表','2025'],bio:'沖縄代表として全国ベスト8。南国育ちのクイックネスと、精度の高いアウトサイドシュートが武器。（選手紹介文を入力）',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'ベスト8',cl:'rb-gray'},{y:'2025',t:'沖縄予選',r:'優勝',cl:'rb-gold'}],style:['クイックネス','アウトサイド','フットワーク'],quote:'沖縄の魂をコートに置いてきた',stats:[{n:'2',l:'勝利'},{n:'1',l:'敗北'},{n:'67%',l:'勝率'},{n:'Top8',l:'最終順位'}]},
   {name:'選手名（※要入力）',en:'PLAYER NAME',region:'関東代表 / 2024',badges:['ベスト4','2024'],bio:'2024年全国大会ベスト4。オールラウンドなプレースタイルとバスケIQの高さで2025年も注目選手。（選手紹介文を入力）',results:[{y:'2024',t:'CLASH BEAT 全国大会',r:'ベスト4',cl:'rb-blue'},{y:'2025',t:'予選参戦',r:'継続',cl:'rb-gray'}],style:['オールラウンド','バスケIQ','クラッチ'],quote:'2025 は絶対に取り返す',stats:[{n:'3',l:'勝利'},{n:'1',l:'敗北'},{n:'75%',l:'勝率'},{n:'Top4',l:'最終順位'}]}
