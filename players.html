@@ -333,7 +333,7 @@ footer{background:var(--gray);border-top:1px solid rgba(255,255,255,0.05);paddin
       </div>
       <div class="pcard-body">
         <div class="pcard-stats"><div class="pcard-stat"><div class="pstat-num" style="color:var(--red)">USA</div><div class="pstat-label">出身</div></div><div class="pcard-stat"><div class="pstat-num" style="color:var(--red)">7</div><div class="pstat-label">勝利</div></div><div class="pcard-stat"><div class="pstat-num">0</div><div class="pstat-label">敗北</div></div></div>
-        <div class="pcard-style"><span class="style-tag">アグレッシブ</span><span class="style-tag">フィジカル</span></div>
+        <div class="pcard-style"><span class="style-tag">アグレッシブ</span><span class="style-tag">フィジカル</span><span class="style-tag">テクニック</span></div>
         <div class="pcard-quote">「To win」</div>
         <div class="pcard-footer"><button class="pcard-video-btn" style="border-color:rgba(255,36,36,0.3);color:var(--red);" onclick="event.stopPropagation();window.location.href='videos.html'">▶ 映像を見る</button><div class="pcard-sns"><a class="sns-icon" href="#">IG</a></div></div>
       </div>
@@ -444,7 +444,7 @@ footer{background:var(--gray);border-top:1px solid rgba(255,255,255,0.05);paddin
   <div class="modal-box">
     <button class="modal-close" onclick="closePModal()">✕ 閉じる</button>
     <div class="modal-hero">
-      <div class="modal-photo"><div style="text-align:center;opacity:0.12;font-size:4rem;">🏀</div></div>
+      <div class="modal-photo" id="mphoto"><div style="text-align:center;opacity:0.12;font-size:4rem;">🏀</div></div>
       <div class="modal-info">
         <div class="modal-badge-row" id="mbadges"></div>
         <div><div class="modal-name-jp" id="mname">選手名</div><div class="modal-name-en" id="mname_en">PLAYER NAME</div><div class="modal-region" id="mregion">地域</div></div>
@@ -465,17 +465,21 @@ footer{background:var(--gray);border-top:1px solid rgba(255,255,255,0.05);paddin
 </div>
 <script>
 const players=[
-  {name:'SHUJ1',en:'SHUJ1',region:'福岡代表',badges:['🏆 Champion','2025'],bio:'福岡予選を突破し、日本一決定戦を制した2025チャンピオン。予選から一度も負けることなく頂点へ。ドライブとフィジカルで相手を攻め、要所の3Pで勝利を掴んだ。',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'優勝',cl:'rb-gold'},{y:'2025',t:'福岡予選',r:'優勝',cl:'rb-gold'}],style:['ドライブ','ステップバック','フィジカル','ハッスル'],quote:'ハッスル！エナジー！パッション！',stats:[{n:'10',l:'勝利'},{n:'0',l:'敗北'},{n:'100%',l:'勝率'},{n:'1st',l:'最終順位'}]},
-  {name:'DAISUKE',en:'DAISUKE',region:'東京代表',badges:['準優勝','2025'],bio:'「アマチュア最強」を背負って2023年のCLASH BEAT1から参戦。2025大会では決勝で惜しくも敗れた。',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'準優勝',cl:'rb-blue'},{y:'2025',t:'東京予選',r:'優勝',cl:'rb-gold'}],style:['フィジカル','テクニック','インサイド'],quote:'（コメントを入力）',stats:[{n:'12',l:'勝利'},{n:'1',l:'敗北'},{n:'92%',l:'勝率'},{n:'2nd',l:'最終順位'}]},
-  {name:'SHUICHI',en:'SHUICHI',region:'神奈川代表',badges:['ベスト4','2025'],bio:'2度の大怪我で一度は辞めたが、1on1特化で復活した44歳。神奈川2位となるも1位の欠場のチャンスを活かしベスト4入り。横浜武道館を最も沸かせた男。',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'ベスト4',cl:'rb-blue'},{y:'2025',t:'神奈川予選',r:'準優勝',cl:'rb-blue'}],style:['フィジカル','フッカー','ゴリゴリ'],quote:'おれが1on1最強のおやじだよ。',stats:[{n:'22',l:'勝利'},{n:'7',l:'敗北'},{n:'Top4',l:'最終順位'},{n:'44',l:'年齢'}]},
-  {name:'選手名（※要入力）',en:'PLAYER NAME',region:'近畿代表',badges:['地域代表','2025'],bio:'近畿代表として全国大会ベスト8。インサイドの圧倒的なパワーでディフェンスを崩し続けた。（選手紹介文を入力）',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'ベスト8',cl:'rb-gray'},{y:'2025',t:'近畿予選',r:'優勝',cl:'rb-gold'}],style:['パワー','インサイド','リバウンド'],quote:'関西のバスケを見せた',stats:[{n:'2',l:'勝利'},{n:'1',l:'敗北'},{n:'67%',l:'勝率'},{n:'Top8',l:'最終順位'}]},
-  {name:'Bam',en:'BAM',region:'🇰🇷 Korea 代表',badges:['🇰🇷 Korea 優勝','2026'],bio:'CLASH BEAT Korea 第一回予選を制した韓国代表。日本の舞台でアグレッシブなプレースタイルを披露。（選手紹介文を入力）',results:[{y:'2026',t:'CLASH BEAT Korea 予選',r:'優勝',cl:'rb-gold'},{y:'2026',t:'CLASH BEAT 全国大会',r:'参戦',cl:'rb-gray'}],style:['アグレッシブ','フィジカル','スピード'],quote:'To win',stats:[{n:'USA',l:'出身'},{n:'7',l:'勝利'},{n:'0',l:'敗北'},{n:'🔥',l:'エネルギー'}]},
-  {name:'選手名（※要入力）',en:'PLAYER NAME',region:'2023 オーディション選抜',badges:['オーディション','2023'],bio:'CLASH BEAT 初期オーディションで選ばれた一人。プロジェクトの原点とも言える選手。2025年も継続参戦し、その成長を見せている。（選手紹介文を入力）',results:[{y:'2023',t:'オーディション',r:'選抜',cl:'rb-gold'},{y:'2024',t:'予選参戦',r:'継続',cl:'rb-gray'},{y:'2025',t:'予選参戦',r:'継続',cl:'rb-gray'}],style:['テクニック','ハンドリング','IQ'],quote:'ここから始まった。まだ終わってない',stats:[{n:'2023',l:'始動'},{n:'3',l:'出場年数'},{n:'継続',l:'参戦'},{n:'↑',l:'成長中'}]},
-  {name:'選手名（※要入力）',en:'PLAYER NAME',region:'沖縄代表',badges:['地域代表','2025'],bio:'沖縄代表として全国ベスト8。南国育ちのクイックネスと、精度の高いアウトサイドシュートが武器。（選手紹介文を入力）',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'ベスト8',cl:'rb-gray'},{y:'2025',t:'沖縄予選',r:'優勝',cl:'rb-gold'}],style:['クイックネス','アウトサイド','フットワーク'],quote:'沖縄の魂をコートに置いてきた',stats:[{n:'2',l:'勝利'},{n:'1',l:'敗北'},{n:'67%',l:'勝率'},{n:'Top8',l:'最終順位'}]},
-  {name:'選手名（※要入力）',en:'PLAYER NAME',region:'関東代表 / 2024',badges:['ベスト4','2024'],bio:'2024年全国大会ベスト4。オールラウンドなプレースタイルとバスケIQの高さで2025年も注目選手。（選手紹介文を入力）',results:[{y:'2024',t:'CLASH BEAT 全国大会',r:'ベスト4',cl:'rb-blue'},{y:'2025',t:'予選参戦',r:'継続',cl:'rb-gray'}],style:['オールラウンド','バスケIQ','クラッチ'],quote:'2025 は絶対に取り返す',stats:[{n:'3',l:'勝利'},{n:'1',l:'敗北'},{n:'75%',l:'勝率'},{n:'Top4',l:'最終順位'}]}
+  {photo:'players/shuj1.jpg',name:'SHUJ1',en:'SHUJ1',region:'福岡代表',badges:['🏆 Champion','2025'],bio:'福岡予選を突破し、日本一決定戦を制した2025チャンピオン。予選から一度も負けることなく頂点へ。ドライブとフィジカルで相手を攻め、要所の3Pで勝利を掴んだ。',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'優勝',cl:'rb-gold'},{y:'2025',t:'福岡予選',r:'優勝',cl:'rb-gold'}],style:['ドライブ','ステップバック','フィジカル','ハッスル'],quote:'ハッスル！エナジー！パッション！',stats:[{n:'10',l:'勝利'},{n:'0',l:'敗北'},{n:'100%',l:'勝率'},{n:'1st',l:'最終順位'}]},
+  {photo:'players/daisuke.jpg',name:'DAISUKE',en:'DAISUKE',region:'東京代表',badges:['準優勝','2025'],bio:'「アマチュア最強」を背負って2023年のCLASH BEAT1から参戦。2025大会では決勝で惜しくも敗れた。',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'準優勝',cl:'rb-blue'},{y:'2025',t:'東京予選',r:'優勝',cl:'rb-gold'}],style:['フィジカル','テクニック','インサイド'],quote:'（コメントを入力）',stats:[{n:'12',l:'勝利'},{n:'1',l:'敗北'},{n:'92%',l:'勝率'},{n:'2nd',l:'最終順位'}]},
+  {photo:'players/shuichi.jpg',name:'SHUICHI',en:'SHUICHI',region:'神奈川代表',badges:['ベスト4','2025'],bio:'2度の大怪我で一度は辞めたが、1on1特化で復活した44歳。神奈川2位となるも1位の欠場のチャンスを活かしベスト4入り。横浜武道館を最も沸かせた男。',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'ベスト4',cl:'rb-blue'},{y:'2025',t:'神奈川予選',r:'準優勝',cl:'rb-blue'}],style:['フィジカル','フッカー','ゴリゴリ'],quote:'おれが1on1最強のおやじだよ。',stats:[{n:'22',l:'勝利'},{n:'7',l:'敗北'},{n:'Top4',l:'最終順位'},{n:'44',l:'年齢'}]},
+  {photo:'',name:'選手名（※要入力）',en:'PLAYER NAME',region:'近畿代表',badges:['地域代表','2025'],bio:'近畿代表として全国大会ベスト8。インサイドの圧倒的なパワーでディフェンスを崩し続けた。（選手紹介文を入力）',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'ベスト8',cl:'rb-gray'},{y:'2025',t:'近畿予選',r:'優勝',cl:'rb-gold'}],style:['パワー','インサイド','リバウンド'],quote:'関西のバスケを見せた',stats:[{n:'2',l:'勝利'},{n:'1',l:'敗北'},{n:'67%',l:'勝率'},{n:'Top8',l:'最終順位'}]},
+  {photo:'players/bam.jpg',name:'Bam',en:'BAM',region:'🇰🇷 Korea 代表',badges:['🇰🇷 Korea 優勝','2026'],bio:'CLASH BEAT Korea 第一回予選を制した韓国代表。日本の舞台でアグレッシブなプレースタイルを披露。（選手紹介文を入力）',results:[{y:'2026',t:'CLASH BEAT Korea 予選',r:'優勝',cl:'rb-gold'},{y:'2026',t:'CLASH BEAT 全国大会',r:'参戦',cl:'rb-gray'}],style:['アグレッシブ','フィジカル','スピード','テクニック'],quote:'To win',stats:[{n:'USA',l:'出身'},{n:'7',l:'勝利'},{n:'0',l:'敗北'},{n:'🔥',l:'エネルギー'}]},
+  {photo:'',name:'選手名（※要入力）',en:'PLAYER NAME',region:'2023 オーディション選抜',badges:['オーディション','2023'],bio:'CLASH BEAT 初期オーディションで選ばれた一人。プロジェクトの原点とも言える選手。2025年も継続参戦し、その成長を見せている。（選手紹介文を入力）',results:[{y:'2023',t:'オーディション',r:'選抜',cl:'rb-gold'},{y:'2024',t:'予選参戦',r:'継続',cl:'rb-gray'},{y:'2025',t:'予選参戦',r:'継続',cl:'rb-gray'}],style:['テクニック','ハンドリング','IQ'],quote:'ここから始まった。まだ終わってない',stats:[{n:'2023',l:'始動'},{n:'3',l:'出場年数'},{n:'継続',l:'参戦'},{n:'↑',l:'成長中'}]},
+  {photo:'',name:'選手名（※要入力）',en:'PLAYER NAME',region:'沖縄代表',badges:['地域代表','2025'],bio:'沖縄代表として全国ベスト8。南国育ちのクイックネスと、精度の高いアウトサイドシュートが武器。（選手紹介文を入力）',results:[{y:'2025',t:'CLASH BEAT 全国大会',r:'ベスト8',cl:'rb-gray'},{y:'2025',t:'沖縄予選',r:'優勝',cl:'rb-gold'}],style:['クイックネス','アウトサイド','フットワーク'],quote:'沖縄の魂をコートに置いてきた',stats:[{n:'2',l:'勝利'},{n:'1',l:'敗北'},{n:'67%',l:'勝率'},{n:'Top8',l:'最終順位'}]},
+  {photo:'',name:'選手名（※要入力）',en:'PLAYER NAME',region:'関東代表 / 2024',badges:['ベスト4','2024'],bio:'2024年全国大会ベスト4。オールラウンドなプレースタイルとバスケIQの高さで2025年も注目選手。（選手紹介文を入力）',results:[{y:'2024',t:'CLASH BEAT 全国大会',r:'ベスト4',cl:'rb-blue'},{y:'2025',t:'予選参戦',r:'継続',cl:'rb-gray'}],style:['オールラウンド','バスケIQ','クラッチ'],quote:'2025 は絶対に取り返す',stats:[{n:'3',l:'勝利'},{n:'1',l:'敗北'},{n:'75%',l:'勝率'},{n:'Top4',l:'最終順位'}]}
 ];
 function openPlayer(i){
   const p=players[i];
+  const mphoto=document.getElementById('mphoto');
+  mphoto.innerHTML=p.photo
+    ? `<img src="${p.photo}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">`
+    : `<div style="text-align:center;opacity:0.12;font-size:4rem;">🏀</div>`;
   document.getElementById('mname').textContent=p.name;
   document.getElementById('mname_en').textContent=p.en;
   document.getElementById('mregion').textContent=p.region;
